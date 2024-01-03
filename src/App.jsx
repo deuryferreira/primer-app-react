@@ -1,8 +1,8 @@
-import {tasks as data} from "./tasks.js" //tasklist source
+import {tasks as data} from "./data/tasks.js" //tasklist source
 import {useState, useEffect} from 'react'
 
-import TaskList from './TaskList.jsx'
-import TaskForm from './TaskForm.jsx'
+import TaskList from './components/TaskList.jsx'
+import TaskForm from './components/TaskForm.jsx'
 
 
 //app
@@ -13,11 +13,11 @@ const App = ()=>{
 
 
   //create task
-  const createTask=(taskTitle)=>{
+  const createTask=(task)=>{
 setTasks([...tasks,{
   id: tasks.length,
-  title:taskTitle,
-  description:"algo nuevo"
+  title:task.title,
+  description:task.description
 }])
   }
 
@@ -29,4 +29,4 @@ setTasks([...tasks,{
   )
 }
 
-export default App
+export default App;

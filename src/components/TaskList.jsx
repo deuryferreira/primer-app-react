@@ -1,5 +1,5 @@
 //modules
-
+import TaskCard from './TaskCard.jsx'
 
 
 const TaskList = ({tasks})=>{
@@ -8,13 +8,10 @@ const TaskList = ({tasks})=>{
         if (tasks.length ===0){
                 return <h1>No hay tareas aun</h1>
         }
-
+console.log(tasks)
 return(
         <div>
-                {tasks.map((task)=><div key={task.id}>
-                        <h2>{task.title}</h2>
-                        <h5>{task.description}</h5>
-                </div>)}
+                {tasks.map((task)=>(<TaskCard key={task.id} task={task}/>))}
         </div>
 )
 }
