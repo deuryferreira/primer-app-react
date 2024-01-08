@@ -21,10 +21,15 @@ setTasks([...tasks,{
 }])
   }
 
+  const deleteTask=(taskID)=>{
+    setTasks(tasks.filter(task=>task.id !== taskID));
+    }
+
+
   return(
   <div>
     <TaskForm createTask={createTask}/>
-    <TaskList tasks={tasks}/>
+    <TaskList tasks={tasks} deleteTask={deleteTask}/>
   </div>
   )
 }

@@ -2,7 +2,7 @@
 import TaskCard from './TaskCard.jsx'
 
 
-const TaskList = ({tasks})=>{
+const TaskList = ({tasks, deleteTask})=>{
         
 
         if (tasks.length ===0){
@@ -11,7 +11,7 @@ const TaskList = ({tasks})=>{
 console.log(tasks)
 return(
         <div>
-                {tasks.map((task)=>(<TaskCard key={task.id} task={task}/>))}
+                {tasks.map((task)=>(<TaskCard key={task.id} task={task} deleteTask={deleteTask}/>))}
         </div>
 )
 }
