@@ -1,32 +1,37 @@
-import {tasks as data} from "./tasks.js" //tasklist source
-import {useState, useEffect} from 'react'
+import { tasks as data } from "./data/tasks.js" //tasklist source
+import { useState, useEffect } from 'react'
 
-import TaskList from './TaskList.jsx'
-import TaskForm from './TaskForm.jsx'
+import TaskList from './components/TaskList.jsx'
+import TaskForm from './components/TaskForm.jsx'
 
 
 //app
-const App = ()=>{
+const App = () => {
   const [tasks, setTasks] = useState([])
 
-  useEffect(()=>{setTasks(data)},[])
+  useEffect(() => { setTasks(data) }, [])
 
 
   //create task
-  const createTask=(taskTitle)=>{
-setTasks([...tasks,{
-  id: tasks.length,
-  title:taskTitle,
-  description:"algo nuevo"
-}])
+  const createTask = (task) => {
+    setTasks([...tasks, {
+      id: tasks.length,
+      title: task.title,
+      description: task.description
+    }])
   }
 
-  return(
-  <div>
-    <TaskForm createTask={createTask}/>
-    <TaskList tasks={tasks}/>
-  </div>
+  const deleteTask = (taskID) => {
+    setTasks(tasks.filter(task => task.id !== taskID));
+  }
+
+
+  return (
+    <div>
+      <TaskForm createTask={createTask} />
+      <TaskList tasks={tasks} deleteTask={deleteTask} />
+    </div>
   )
 }
-
-export default App
+//asd
+export default App;
