@@ -1,4 +1,6 @@
-import { createContext } from 'react'
+import { createContext, useState, useEffect } from 'react'
+import { tasks as data } from "../data/tasks" //tasklist source
+
 
 export const TaskContext = createContext()
 
@@ -8,6 +10,9 @@ export function TaskContextProvider(props) {
 
 
     const [tasks, setTasks] = useState([])
+
+    useEffect(() => { setTasks(data) }, [])
+
 
     //Crear Tareas
     const createTask = (task) => {
@@ -24,7 +29,11 @@ export function TaskContextProvider(props) {
     }
 
     return (
-        <TaskContext.Provider value={x}>
+        <TaskContext.Provider value={{
+            tasks,
+            createTask,
+            deleteTask
+        }}>
             {props.children}
         </TaskContext.Provider>
     )
