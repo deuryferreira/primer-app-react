@@ -7,23 +7,8 @@ import TaskForm from './components/TaskForm.jsx'
 
 //app
 const App = () => {
-  const [tasks, setTasks] = useState([])
 
   useEffect(() => { setTasks(data) }, [])
-
-
-  //create task
-  const createTask = (task) => {
-    setTasks([...tasks, {
-      id: tasks.length,
-      title: task.title,
-      description: task.description
-    }])
-  }
-
-  const deleteTask = (taskID) => {
-    setTasks(tasks.filter(task => task.id !== taskID));
-  }
 
 
   return (
@@ -33,5 +18,5 @@ const App = () => {
     </div>
   )
 }
-//asd
+//
 export default App;

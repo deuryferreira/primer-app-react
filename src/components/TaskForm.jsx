@@ -2,14 +2,16 @@ import { useState } from "react";
 
 
 
-const TaskForm =({createTask})=>{
+const TaskForm = ({ createTask }) => {
 
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
 
-    const handleSubmit= (e)=>{
+
+
+    const handleSubmit = (e) => {
         e.preventDefault();
-        
+
 
         //crear la tarea
         createTask({
@@ -17,20 +19,20 @@ const TaskForm =({createTask})=>{
             description
         });
 
-        
+
 
         //reset form
         setTitle("")
         setDescription("")
     }
-return (<form onSubmit={handleSubmit}>
-    <h3>Agregar Nueva Tarea</h3>
-    <input type="text" placeholder="Escribe tu tarea" onChange={e=>setTitle(e.target.value) } value={title} autoFocus/>
+    return (<form onSubmit={handleSubmit}>
+        <h3>Agregar Nueva Tarea</h3>
+        <input type="text" placeholder="Escribe tu tarea" onChange={e => setTitle(e.target.value)} value={title} autoFocus />
 
-    <textarea name="" id="" placeholder="Describe tu tarea" cols="20" rows="5" onChange={c=>setDescription(c.target.value)}value={description}></textarea>
+        <textarea name="" id="" placeholder="Describe tu tarea" cols="20" rows="5" onChange={c => setDescription(c.target.value)} value={description}></textarea>
 
-    <button>Agregar</button>
-</form>)
+        <button>Agregar</button>
+    </form>)
 }
 
 
