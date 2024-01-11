@@ -27,14 +27,18 @@ const TaskForm = () => {
         setTitle("")
         setDescription("")
     }
-    return (<form onSubmit={handleSubmit}>
-        <h3>Agregar Nueva Tarea</h3>
-        <input type="text" placeholder="Escribe tu tarea" onChange={e => setTitle(e.target.value)} value={title} autoFocus />
+    return (
+        <div className="max-w-md mx-auto rounded-md">
+            <form className="bg-slate-800 p-10 mb-4 rounded-md" onSubmit={handleSubmit}>
+                <h1 className="text-2xl font-bold text-white mb-3">Lista de tareas</h1>
+                <input className="bg-slate-200 p-3 w-full mb-2" type="text" placeholder="Escribe tu tarea" onChange={e => setTitle(e.target.value)} value={title} autoFocus />
 
-        <textarea name="" id="" placeholder="Describe tu tarea" cols="20" rows="5" onChange={c => setDescription(c.target.value)} value={description}></textarea>
+                <textarea className="bg-slate-200 p-3 w-full mb-2" name="" id="" placeholder="Describe tu tarea" cols="10" rows="4" onChange={c => setDescription(c.target.value)} value={description}></textarea>
 
-        <button>Agregar</button>
-    </form>)
+                <button className="bg-blue-500 hover:bg-blue-400 px-3 py-2 w-full rounded-md text-white text-xl">Agregar</button>
+            </form>
+        </div>
+    )
 }
 
 

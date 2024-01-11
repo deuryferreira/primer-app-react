@@ -10,10 +10,12 @@ const App = () => {
 
 
   return (
-    <div>
-      <TaskForm />
-      <TaskList />
-    </div>
+    <main className='min-h-screen h-auto bg-zinc-900'>
+      <div className='container h-auto mx-auto p-10'>
+        <TaskForm />
+        <TaskList />
+      </div>
+    </main>
   )
 }
 //
